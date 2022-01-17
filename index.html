@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Deposit Calculator</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="assets/img/logo-light%201.png">
+    </div>
+    <span>Deposit Calculator</span>
+</header>
+<main>
+    <h1>Депозитный калькулятор</h1>
+    <h6>Калькулятор депозитов позволяет рассчитать ваши доходы после внесения суммы на счет в банке по опредленному тарифу.</h6>
+
+
+    <form id="calculatorForm">
+        <div class="container date">
+            <label for="datepicker">Дата открытия</label>
+            <input id="datepicker" type="text" name="startDate">
+        </div>
+        <div>
+            <div class="container term">
+                <label for="depositTime">Срок вклада</label>
+                <input id="depositTime" type="number" name="term">
+                <select id="monthOrYear" class="monthOrYear">
+                    <option value="1">месяц</option>
+                    <option value="12">год</option>
+                </select>
+            </div>
+            <span class="warning" id="termWarning">Не более 5-и лет</span>
+        </div>
+        <div>
+            <div class="container sum">
+                <label for="depositAmount">Сумма вклада</label>
+                <input id="depositAmount" type="number" name="sum">
+            </div>
+            <span class="warning" id="sumWarning">От 1000 до 3000000</span>
+        </div>
+        <div>
+            <div class="container percent">
+                <label for="interestRate">Процентная ставка, % годовых</label>
+                <input id="interestRate" type="number" name="percent">
+            </div>
+            <span class="warning" id="percentWarning">Целое число от 3 до 100</span>
+        </div>
+        <div class="sumAddCheck">
+            <input type="checkbox" class="check">
+            <span>Ежемесячное пополнение вклада</span>
+        </div>
+        <div>
+            <div class="container optional sumAdd">
+                <label for="monthlyDepositAmount">Сумма пополнения вклада</label>
+                <input id="monthlyDepositAmount" type="number" name="sumAdd" value="0">
+            </div>
+            <span class="warning" id="sumAddWarning">От 0 до 3000000</span>
+        </div>
+        <input class="submit" type="submit">
+    </form>
+
+
+    <div class="js-calculationResults">
+        <span class="calculationText"></span>
+        <span class="total"></span>
+    </div>
+
+
+    <script src="script.js"></script>
+</main>
+</body>
+</html>
